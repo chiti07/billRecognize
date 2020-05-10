@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="#f53d3d">
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+    <ion-item class="ion-justify-content-center" color="#f53d3d" lines="none">
+        <ion-icon name="cash" class="logo" color="light"></ion-icon>
+    </ion-item>
+
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <ion-text style="text-align: center;" color="light">
+                    <h1 style="text-align: center;">Bill Recognizer </h1>
+                    <h6 style="text-align: center;">The app to make it easier </h6>
+                </ion-text>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <ion-grid style="width: 754">
+        <ion-row class="rowStyle">
+            <ion-icon name="person" color="danger"></ion-icon>
+            <ion-input type="text" placeholder="your name" [(ngModel)]="name"></ion-input>
+        </ion-row>
+        <ion-row class="rowStyle">
+            <ion-icon name="mail" color="danger"></ion-icon>
+            <ion-input type="email" placeholder="your email address" [(ngModel)]="mail"></ion-input>
+        </ion-row>
+        <ion-row class="rowStyle">
+            <ion-icon name="key" color="danger"></ion-icon>
+            <ion-input type="password" placeholder="your password" [(ngModel)]="password"></ion-input>
+        </ion-row>
+        <ion-row class="rowStyle">
+            <ion-icon name="key" color="danger"></ion-icon>
+            <ion-input type="password" placeholder="confirm your password" [(ngModel)]="confirmpw"></ion-input>
+        </ion-row>
+        <div class="ion-padding">
+            <ion-button ouline expand="block" (click)="signup()">Sign Up</ion-button>
+        </div>
+
+
+
+    </ion-grid>
+
+    <ion-row>
+        <div class="colorReg">
+            Already have an account? <a routerLink='/login'>
+              Log in.</a> first!
+
+        </div>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="#f53d3d" hidden>
+        <ion-title>
+            Bill Recognizer
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+
+    <ion-item class="ion-justify-content-center" color="#f53d3d" lines="none">
+        <ion-icon name="cash" class="logo" color="light"></ion-icon>
+    </ion-item>
+
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <ion-text style="text-align: center;" color="light">
+                    <h1 style="text-align: center;">Bill Recognizer </h1>
+                    <h6 style="text-align: center;">The app to make it easier </h6>
+                </ion-text>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <ion-grid style="width: 754">
+        <ion-row class="rowStyle">
+            <ion-icon name="mail" color="danger"></ion-icon>
+            <ion-input type="email" placeholder="Type your email address" [(ngModel)]="email"></ion-input>
+        </ion-row>
+        <ion-row class="rowStyle">
+            <ion-icon name="key" color="danger"></ion-icon>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-row>
+        <div class="ion-padding">
+            <ion-button ouline expand="block" (click)="login()">Login</ion-button>
+        </div>
+
+
+
+    </ion-grid>
+
+    <ion-row>
+        <div class="colorReg">
+            If you don't have an account, please <a routerLink='/sign-up'>
+                register</a> first!
+
+        </div>
+    </ion-row>
+</ion-content>
