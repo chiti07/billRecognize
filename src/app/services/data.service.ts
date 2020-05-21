@@ -4,8 +4,10 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
   import { from } from 'rxjs';
 
-import { FaceRecognitionResponse } from '../models/face.model';
+
 import { environment } from 'src/environments/environment.prod';
+import { TextRecognitionResponse } from '../models/text.model';
+import { ApiKey } from './api.key';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +16,14 @@ export class DataService {
  
    constructor(private httpClient: HttpClient) { }
   
-  
+  private url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText?Printed';
  
-  getBillValue(subscriptionKey: string, base64Image:string){
-    const headers = this.getHeaders(subscriptionKey);
+  getBillValue(base64Image:string){
+    const headers = this.getHeaders(this.url);
     const params = this.getParams();
     const blob = this.makeblob(base64Image);
 
-    return this.httpClient.post<FaceRecognitionResponse>(
+    return this.httpClient.post<TextRecognitionResponse>(
       environment.endpoint,
       blob,
       {
@@ -46,22 +48,19 @@ export class DataService {
     return new Blob([uIntBArray],{ type: contentType});
   }
 
-  private getHeaders(subscriptionKey: string) {
+  private getHeaders(imageUrl: string) {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/octet-stream');
-    headers = headers.set('Ocp-Apim-Subscription-Key', subscriptionKey);
+    headers = headers.set('Ocp-Apim-Subscription-Key', ApiKey.arguments);
 
     return headers;
 }
 
   private getParams() {
   const httpParams = new HttpParams()
-    .set('returnFaceId', 'true')
-    .set('returnFaceLandmarks', 'false')
-    .set(
-        'returnFaceAttributes',
-        'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-    );
+    .set('status', 'true')
+    .set('text', 'true')
+     .set('boundingBox', 'text, words');
 
     return httpParams;
 

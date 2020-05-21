@@ -12,8 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import * as firebase from 'firebase'; 
 import { Camera } from '@ionic-native/camera/ngx';
 import { DataService } from './services/data.service';
+import { CargarArchivoService } from './services/cargar-archivo.service';
+
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { Vibration } from '@ionic-native/vibration/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 // import { HttpModule } from '@angular/http';
 
 
@@ -29,8 +33,8 @@ var firebaseConfig = {
   appId: "1:266360068290:web:7051f056c3b5e04388835b",
   measurementId: "G-DSY5DQZEC6"
 };
-
 firebase.initializeApp(firebaseConfig);
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,7 +45,10 @@ firebase.initializeApp(firebaseConfig);
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Camera,
-    DataService
+    DataService,
+    CargarArchivoService,
+    Vibration,
+    NativeAudio
     
   ],
   bootstrap: [AppComponent]

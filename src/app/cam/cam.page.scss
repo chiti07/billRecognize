@@ -1,5 +1,5 @@
 .rowStyle {
-    background-color: #961212;
+    background-color: #eb445a;
     border-radius: 30px;
     margin-top: 15px;
     ion-input {
@@ -10,3 +10,19 @@
 .rounded-cornerrs {
     border-radius: 24px;
 }
+
+.toolbar {
+    --background: #ed5249 no-repeat center;
+    background: #f53d3d;
+}
+
+// ion-button {
+//     --background: #f53d3d;
+//     background-color: #f53d3d;
+//     padding-left: 10px;
+//     padding-top: 3px;
+//     padding-bottom: 5px;
+//     padding-right: 10px;
+//     border-radius: 30px;
+//     margin-top: 10px;
+// }

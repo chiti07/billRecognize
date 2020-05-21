@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   endpoint:
-    'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect',
+  'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText?'
 };
 
 /*

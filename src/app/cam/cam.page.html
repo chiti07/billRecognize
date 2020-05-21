@@ -13,16 +13,23 @@
 
 <ion-content>
     <ion-row margin class="rowStyle">
-        <ion-button (click)="addPhoto()">
+        <ion-button (click)="addPhoto()" color="danger">
             <ion-icon name="images"></ion-icon>
         </ion-button>
+        <ion-input type="text" placeholder="Load your image..." [(ngModel)]="text"></ion-input>
+        <ion-button (click)="post()" color="danger">
+            <ion-icon name="send"></ion-icon>
+        </ion-button>
+
     </ion-row>
     <ion-row class="rowStyle" *ngIf="image">
         <ion-card class="round-corners">
             <img [src]="image" class="round-corners">
         </ion-card>
     </ion-row>
-    <form #f="ngForm">
+
+
+    <!-- <form #f="ngForm">
         <div class="form-group">
             <input type="text" class="form-control" name="subscriptionKey" id="subscriptionKey" [(ngModel)]="subscriptionKey" required placeholder="Enter your Subscription Key">
         </div>
@@ -33,7 +40,7 @@
         <ion-button (click)="getBillValue()">
             Analize Image
         </ion-button>
-    </ion-row>
+    </ion-row> -->
 
 
 </ion-content>
