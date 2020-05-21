@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-title>
+            Your Bill
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row margin class="rowStyle">
+        <ion-button (click)="addPhoto()">
+            <ion-icon name="images"></ion-icon>
+        </ion-button>
+    </ion-row>
+    <ion-row class="rowStyle" *ngIf="image">
+        <ion-card class="round-corners">
+            <img [src]="image" class="round-corners">
+        </ion-card>
+    </ion-row>
+    <form #f="ngForm">
+        <div class="form-group">
+            <input type="text" class="form-control" name="subscriptionKey" id="subscriptionKey" [(ngModel)]="subscriptionKey" required placeholder="Enter your Subscription Key">
+        </div>
+        <button (click)="getBillValue()" [disabled]="!f?.valid" class="btn btn-primary my-2">Take picture</button>
+    </form>
+
+    <ion-row margin class="rowStyle" *ngIf="image">
+        <ion-button (click)="getBillValue()">
+            Analize Image
+        </ion-button>
+    </ion-row>
+
+
+</ion-content>
